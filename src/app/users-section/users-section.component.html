@@ -1,0 +1,11 @@
+<div class="user-section">
+  <form class="controlls-wrapper">
+    <input type="text" class="find-user-controll" #findUser />
+  </form>
+  <app-user-card
+    *ngFor="let user of users"
+    [user]="user"
+    (deleteUserCard)="deleteUserCard($event)"
+  >
+  </app-user-card>
+</div>
