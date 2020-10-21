@@ -5,6 +5,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Post } from '../shared/models/post';
 import { ApiDataService } from '../shared/services/api-data.service';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-edit-modal-dialog',
   templateUrl: './edit-modal-dialog.component.html',
@@ -18,6 +20,7 @@ export class EditModalDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public postInfo: Post,  
     private appService: ApiDataService,
     private dialigRef: MatDialogRef<EditModalDialogComponent>,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -29,11 +32,16 @@ export class EditModalDialogComponent implements OnInit {
     );
   }
 
+  showSuccess() {
+    this.toastr.success('Successfully applied!', 'Edditing');
+  }
+
   save(){
     this.postInfo.title = this.formGroup.controls.postTitle.value;
     this.postInfo.body = this.formGroup.controls.postDesc.value;
     this.appService.updatePost(this.postInfo, this.postInfo.id).pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.dialigRef.close();
+      this.showSuccess();
     });
   }
 

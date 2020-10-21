@@ -23,6 +23,8 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 import { AboutGuard } from './guard';
 
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,8 @@ import { AboutGuard } from './guard';
     MatDialogModule,
     ReactiveFormsModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ToastrModule.forRoot()
   ],
   providers: [AboutGuard],
   bootstrap: [AppComponent]
