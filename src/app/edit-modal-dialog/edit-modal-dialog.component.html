@@ -3,7 +3,7 @@
     <form class="edit-form" [formGroup]="formGroup" (ngSubmit)="save()" *ngIf="postInfo">
       <div class="input-container">
         <input class="edit-control" type="text" formControlName="postTitle">
-        <input class="edit-control" type="text" formControlName="postDesc">
+        <textarea class="edit-control" name="edit-control" cols="30" rows="10" formControlName="postDesc" style="resize: none"></textarea>
       </div>
   
       <div class="btns-container">

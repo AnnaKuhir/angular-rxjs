@@ -1,0 +1,78 @@
+.edit-container {
+  .edit-title {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .edit-form {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-container {
+    width: min-content;
+    margin: 0 auto 10px;
+
+    .edit-control {
+      width: 59vw;
+      padding: 7px 10px;
+      border-radius: 5px;
+      margin: 10px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .edit-control.ng-invalid {
+      border: 1.5px solid rgb(207, 49, 49);
+    }
+
+    .edit-control.ng-valid {
+      border: 1.5px solid rgb(103, 212, 114);
+    }
+  }
+
+  .btns-container {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 5px 12px;
+
+    .btn {
+      border-radius: 3px;
+      padding: 5px 15px;
+      color: #fff;
+      margin: 0 2px;
+      outline: none;
+    }
+
+    .btn-submit {
+      border: 1.5px solid rgb(103, 212, 114);
+      background: rgb(103, 212, 114);
+
+      &:active {
+        border: 1.5px solid rgb(75, 138, 81);
+        background: rgb(75, 138, 81);
+      }
+    }
+
+    .btn-submit:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .btn-cancel {
+      border: 1.5px solid rgb(207, 49, 49);
+      background: rgb(207, 49, 49);
+
+      &:active {
+        border: 1.5px solid rgb(156, 37, 37);
+        background: rgb(156, 37, 37);
+      }
+    }
+  }
+}

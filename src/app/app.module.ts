@@ -50,7 +50,13 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     FormsModule,
     CommonModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(
+      {
+        timeOut: 2000,
+        positionClass: 'toast-top-right',
+        preventDuplicates: true,
+      }
+    )
   ],
   providers: [AboutGuard],
   bootstrap: [AppComponent]
