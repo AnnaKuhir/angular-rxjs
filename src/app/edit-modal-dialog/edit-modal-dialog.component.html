@@ -1,0 +1,14 @@
+<div class="edit-container">
+    <h1 class="edit-title">Editing</h1>
+    <form class="edit-form" [formGroup]="formGroup" (ngSubmit)="save()" *ngIf="postInfo">
+      <div class="input-container">
+        <input class="edit-control" type="text" formControlName="postTitle">
+        <input class="edit-control" type="text" formControlName="postDesc">
+      </div>
+  
+      <div class="btns-container">
+        <button class="btn btn-submit" type="submit" [disabled]="!formGroup.valid">Save</button>
+        <button class="btn btn-cancel" type="button" mat-button [mat-dialog-close]="true">Cancel</button>
+      </div>
+    </form>
+  </div>

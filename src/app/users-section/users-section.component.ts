@@ -34,22 +34,23 @@ export class UsersSectionComponent implements OnInit, AfterViewInit {
       .getUsers()
       .pipe(
         takeUntil(this.destroy$),
-        tap((usersArr: User[]) => {
-          if (usersArr) {
-            this.usersArr = usersArr;
-            this.users = [...this.usersArr];
-          }
-        }),
-        catchError(error => {
+        catchError((error) => {
           throw 'Error in source. Details: ' + error;
         })
       )
-      .subscribe();
+      .subscribe((usersArr: User[]) => {
+        if (usersArr) {
+          this.usersArr = usersArr;
+          this.users = [...this.usersArr];
+        }
+      });
   }
 
   ngAfterViewInit(): void {
     this.inputElement$ = fromEvent(this.findUser.nativeElement, 'keyup');
-    this.inputElement$.subscribe((event) => this.getUserByName(event.target.value));
+    this.inputElement$.subscribe((event) =>
+      this.getUserByName(event.target.value)
+    );
   }
 
   getUserByName(name: string) {
