@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { faBriefcase, faEnvelope, faHome, faPhoneSquare, faSitemap, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { User } from 'src/app/shared/models/user-info';
 
 @Component({
@@ -11,8 +12,19 @@ export class UserCardComponent implements OnInit {
   @Output() deleteUserCard: EventEmitter<User> = new EventEmitter<User>();
   userAddress: string;
   userCompany: string;
+  faHome: IconDefinition;
+  faBriefcase: IconDefinition;
+  faPhone: IconDefinition;
+  faSite: IconDefinition;
+  faMail: IconDefinition;
 
-  constructor() {}
+  constructor() {
+    this.faHome = faHome;
+    this.faBriefcase = faBriefcase;
+    this.faPhone = faPhoneSquare;
+    this.faSite = faSitemap;
+    this.faMail = faEnvelope;
+  }
 
   deleteUserItem() {
     this.deleteUserCard.emit(this.user);

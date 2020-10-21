@@ -24,6 +24,7 @@ import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 import { AboutGuard } from './guard';
 
 import { ToastrModule } from 'ngx-toastr';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ToastrModule } from 'ngx-toastr';
         positionClass: 'toast-top-right',
         preventDuplicates: true,
       }
-    )
+    ),
+    FontAwesomeModule
   ],
   providers: [AboutGuard],
   bootstrap: [AppComponent]
