@@ -25,6 +25,7 @@ import { AboutGuard } from './guard';
 
 import { ToastrModule } from 'ngx-toastr';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HoverDirective } from './shared/directives/hover-scroll';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EditModalDialogComponent,
     NotFoundPageComponent,
     SidebarMenuComponent,
+    HoverDirective
   ],
   imports: [
     BrowserModule,

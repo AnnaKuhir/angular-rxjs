@@ -10,6 +10,7 @@
 
 .mainContant {
   margin-left: 250px;
+  margin-right: calc(-1 * (100vw - 100%));
   height: auto;
   min-height: 100vh;
 }
