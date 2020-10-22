@@ -1,14 +1,19 @@
 <div class="user-section">
   <form class="controlls-wrapper">
     <h1 class="form-title">Find user</h1>
-    <input type="text" placeholder="Find user" class="find-user-controll" #findUser />
+    <input
+      type="text"
+      placeholder="Find user"
+      class="find-user-controll"
+      #findUser
+    />
   </form>
   <div class="users-cards">
     <app-user-card
-    *ngFor="let user of users"
-    [user]="user"
-    (deleteUserCard)="deleteUserCard($event)"
-  >
-  </app-user-card>
+      *ngFor="let user of users"
+      [user]="user"
+      (deleteUserCard)="deleteUserCard($event)"
+    >
+    </app-user-card>
   </div>
 </div>

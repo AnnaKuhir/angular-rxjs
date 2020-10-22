@@ -11,8 +11,8 @@ const routes: Routes = [
   {path: '', component: UsersSectionComponent},
   {path: 'comments', component: CommentsSectionComponent},
   {path: 'photos', component: PhotosSectionComponent},
-  {path: 'posts', component: PostsSectionComponent, canActivate: [AboutGuard]},
-  { path: '**', component: NotFoundPageComponent },
+  {path: 'posts', component: PostsSectionComponent },
+  { path: '**', component: NotFoundPageComponent, canActivate: [AboutGuard] },
 ];
 
 @NgModule({

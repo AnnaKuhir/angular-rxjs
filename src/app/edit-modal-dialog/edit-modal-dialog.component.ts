@@ -10,44 +10,44 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-edit-modal-dialog',
   templateUrl: './edit-modal-dialog.component.html',
-  styleUrls: ['./edit-modal-dialog.component.scss']
+  styleUrls: ['./edit-modal-dialog.component.scss'],
 })
 export class EditModalDialogComponent implements OnInit {
   public formGroup: FormGroup;
-  
+
   private destroy$: Subject<void> = new Subject<void>();
   constructor(
-    @Inject(MAT_DIALOG_DATA) public postInfo: Post,  
+    @Inject(MAT_DIALOG_DATA) public postInfo: Post,
     private appService: ApiDataService,
     private dialigRef: MatDialogRef<EditModalDialogComponent>,
     private toastr: ToastrService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.formGroup = new FormGroup (
-      {
-        postTitle: new FormControl(this.postInfo.title, [Validators.required]),
-        postDesc: new FormControl(this.postInfo.body, [Validators.required])
-      }
-    );
+    this.formGroup = new FormGroup({
+      postTitle: new FormControl(this.postInfo.title, [Validators.required]),
+      postDesc: new FormControl(this.postInfo.body, [Validators.required]),
+    });
   }
 
   showSuccess() {
     this.toastr.success('Successfully applied!', 'Edditing');
   }
 
-  save(){
+  save() {
     this.postInfo.title = this.formGroup.controls.postTitle.value;
     this.postInfo.body = this.formGroup.controls.postDesc.value;
-    this.appService.updatePost(this.postInfo, this.postInfo.id).pipe(takeUntil(this.destroy$)).subscribe(() => {
-      this.dialigRef.close();
-      this.showSuccess();
-    });
+    this.appService
+      .updatePost(this.postInfo, this.postInfo.id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.dialigRef.close();
+        this.showSuccess();
+      });
   }
 
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
   }
-
 }

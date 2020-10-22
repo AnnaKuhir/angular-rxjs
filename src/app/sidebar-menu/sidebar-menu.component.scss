@@ -50,22 +50,16 @@
 
   .bottom-content {
     padding: 5px;
-    margin-bottom: 10px;
     text-align: center;
     color: #fff;
     line-height: 1;
 
-    a {
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-      vertical-align: top;
+    .footer-of-the-menu {
       line-height: 1;
-      text-decoration: none;
-
-      &:hover {
-        color: #42023d;
-      }
+      width: 100%;
+      height: 30px;
+      padding: 5px 10px;
+      font-size: 10px;
     }
   }
 }

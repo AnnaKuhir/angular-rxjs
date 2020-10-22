@@ -15,11 +15,11 @@
   .user-main-info {
     margin-bottom: 20px;
     fa-icon {
-        font-size: 16px;
-        margin-right: 20px;
-        padding: 2px;
-        line-height: 1;
-        color: rgb(136, 27, 94);
+      font-size: 16px;
+      margin-right: 20px;
+      padding: 2px;
+      line-height: 1;
+      color: rgb(136, 27, 94);
     }
     .user-name {
       font-size: 28px;
@@ -54,29 +54,29 @@
         }
       }
     }
-    .user-phone{
+    .user-phone {
+      line-height: 1;
+      a {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        position: relative;
         line-height: 1;
-        a {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-            position: relative;
-            line-height: 1;
-            &:after {
-              display: block;
-              position: absolute;
-              left: 0;
-              width: 0;
-              height: 1px;
-              margin-top: 2px;
-              background-color: #000;
-              content: "";
-              transition: width 0.3s ease-out;
-            }
-            &:hover::after {
-              width: 100%;
-            }
-          }
+        &:after {
+          display: block;
+          position: absolute;
+          left: 0;
+          width: 0;
+          height: 1px;
+          margin-top: 2px;
+          background-color: #000;
+          content: "";
+          transition: width 0.3s ease-out;
+        }
+        &:hover::after {
+          width: 100%;
+        }
+      }
     }
   }
 

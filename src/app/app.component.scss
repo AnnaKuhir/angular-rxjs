@@ -1,15 +1,15 @@
 .sidebarMenuWrapper {
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    z-index: 2;
-    background: rgb(221, 151, 218);
-    background: linear-gradient(to bottom, #ee6363 30%, #a527d3 100%);
-    box-shadow:   0 0 5px #000000;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  z-index: 2;
+  background: rgb(221, 151, 218);
+  background: linear-gradient(to bottom, #ee6363 30%, #a527d3 100%);
+  box-shadow: 0 0 5px #000000;
 }
 
 .mainContant {
-    margin-left: 250px;
-    height: auto;
-    min-height: 100vh;
+  margin-left: 250px;
+  height: auto;
+  min-height: 100vh;
 }

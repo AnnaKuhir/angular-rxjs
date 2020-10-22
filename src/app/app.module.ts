@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,7 @@ import { PostsSectionComponent } from './posts-section/posts-section.component';
 import { PostItemComponent } from './posts-section/post-item/post-item.component';
 import { EditBtnComponent } from './edit-btn/edit-btn.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { EditModalDialogComponent } from './edit-modal-dialog/edit-modal-dialog.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
@@ -40,7 +40,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EditBtnComponent,
     EditModalDialogComponent,
     NotFoundPageComponent,
-    SidebarMenuComponent
+    SidebarMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,16 +51,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     FormsModule,
     CommonModule,
-    ToastrModule.forRoot(
-      {
-        timeOut: 2000,
-        positionClass: 'toast-top-right',
-        preventDuplicates: true,
-      }
-    ),
-    FontAwesomeModule
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
+    FontAwesomeModule,
   ],
   providers: [AboutGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
