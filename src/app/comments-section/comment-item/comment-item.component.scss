@@ -1,0 +1,21 @@
+.comment-item {
+  border: 1px solid rgb(136, 27, 94);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 16px;
+
+  .comment-title {
+    font-size: 21px;
+    line-height: 1;
+    margin-bottom: 20px;
+    color: rgb(136, 27, 94);
+  }
+
+  .comment-body {
+    span {
+      font-weight: 400;
+      font-style: italic;
+    }
+  }
+}

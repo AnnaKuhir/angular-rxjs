@@ -1,0 +1,24 @@
+.photo-item {
+  width: 24vw;
+  height: auto;
+  margin-bottom: 20px;
+  background: #f8dff8;
+
+  .image-wrapper {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+
+    .photo-img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .photo-title {
+    height: 100px;
+    padding: 5px 10px;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
