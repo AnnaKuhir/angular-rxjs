@@ -1,6 +1,7 @@
-<div class="innerPostContent">
+<div class="innerPostContent" >
   <p class="info">{{ post.id }}</p>
   <p class="info title-info">{{ post.title }}</p>
   <p class="info title-info">{{ post.body }}</p>
   <app-edit-btn [postInfo]="postInfo" *ngIf="postInfo"></app-edit-btn>
+  <button class="update-posts" (click)="updatePostCard()">Update post</button>
 </div>

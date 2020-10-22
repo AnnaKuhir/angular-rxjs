@@ -35,7 +35,11 @@ export class ApiDataService {
     return this.http.get<Post[]>(`${this.baseUrl}/posts`);
   }
 
-  public updatePost(post: Post, id: number): Observable<any> {
+  getPost(id: number): Observable<Post> {
+    return this.http.get<Post>(`${this.baseUrl}/posts/${id}`);
+  }
+
+  updatePost(post: Post, id: number): Observable<any> {
     const body = JSON.stringify(post);
     const token = this.token;
     let headers = new HttpHeaders().set(
