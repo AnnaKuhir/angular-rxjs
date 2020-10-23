@@ -1,7 +1,11 @@
-<h1 mat-dialog-title>Addition information</h1>
-<div mat-dialog-content>
-  {{photo.title}}
-</div>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
+<div class="modal-inner-content">
+  <div class="modal-main-content">
+    <h1 class="modat-title" mat-dialog-title>Addition information</h1>
+    <div class="modal-content" mat-dialog-content>
+      Description: {{ photo.title }}
+    </div>
+  </div>
+  <div class="btn-wrapper" mat-dialog-actions>
+    <button class="close-btn" mat-button mat-dialog-close>Close</button>
+  </div>
 </div>
