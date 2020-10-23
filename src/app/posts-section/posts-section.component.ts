@@ -13,8 +13,10 @@ import { ApiDataService } from '../shared/services/api-data.service';
 export class PostsSectionComponent implements OnInit {
   @Output() posts: Post[];
   private destroy$: Subject<void> = new Subject<void>();
-  constructor(private apiService: ApiDataService, private toastr: ToastrService) {
-  }
+  constructor(
+    private apiService: ApiDataService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.apiService
@@ -31,7 +33,6 @@ export class PostsSectionComponent implements OnInit {
   }
 
   updatePostItem(post) {
-    debugger;
     this.apiService
       .getPost(post.id)
       .pipe(
@@ -41,8 +42,9 @@ export class PostsSectionComponent implements OnInit {
         })
       )
       .subscribe((post) => {
-        this.posts[post.id - 1].title = post.title;
-        this.posts[post.id - 1].body = post.body;
+        let index = this.posts.findIndex((postItem) => postItem.id === post.id);
+        this.posts[index].title = post.title;
+        this.posts[index].body = post.body;
         this.toastr.info('Successfully updated!', `Updating post ${post.id}`);
       });
   }

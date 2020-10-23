@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { catchError, takeUntil, tap } from 'rxjs/operators';
 import { CommentItem } from '../shared/models/comment-item';
@@ -11,7 +12,7 @@ import { ApiDataService } from '../shared/services/api-data.service';
 })
 export class CommentsSectionComponent implements OnInit {
   @Output() comments: CommentItem[];
-
+  form: FormGroup;
   private destroy$: Subject<void> = new Subject<void>();
 
   constructor(private apiService: ApiDataService) {}
@@ -28,10 +29,51 @@ export class CommentsSectionComponent implements OnInit {
       .subscribe((commentsArr: CommentItem[]) => {
         this.comments = commentsArr;
       });
+
+      this.form = new FormGroup({
+        sort: new FormControl('')
+      });
+  }
+
+  sortByKey(key: string) {
+    this.comments = this.comments.sort((commentPrev, commentNext) => {
+      let commentFirst = commentPrev.email.toLowerCase(),
+          commentSecond = commentNext.email.toLowerCase();
+      const sortOrder = SortOrder[key];
+      if(sortOrder) {
+        if (sortOrder === SortOrder.asc){
+          if (commentFirst < commentSecond) {
+            return -1;
+          }
+          if (commentFirst > commentSecond) {
+            return 1;
+          }
+        }
+        if (sortOrder === SortOrder.desc) {
+          if (commentFirst < commentSecond) {
+            return 1;
+          }
+          if (commentFirst > commentSecond) {
+            return -1;
+          }
+        }
+        return 0;
+      }
+    });
+  }
+
+  sortComments(value) {
+    debugger
+    this.sortByKey(value);
   }
 
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
   }
+}
+
+enum SortOrder {
+  asc = "asc",
+  desc = "desc"
 }

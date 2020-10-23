@@ -1,6 +1,32 @@
 <div class="comments-section">
-  <app-comment-item
-    *ngFor="let comment of comments"
-    [comment]="comment"
-  ></app-comment-item>
+  <form class="controlls-wrapper" [formGroup]="form">
+    <div class="controll-wrapper">
+      <input
+        id="sort-by-alphabet-asc"
+        type="radio"
+        name="sort"
+        value="asc"
+        formControlName="sort"
+        (click)="sortComments($event.target.value)"
+      />
+      <label for="sort-by-alphabet-asc">Sort by alphabet (ascending)</label>
+    </div>
+    <div class="controll-wrapper">
+      <input
+        id="sort-by-alphabet-desc"
+        type="radio"
+        name="sort"
+        value="desc"
+        formControlName="sort"
+        (click)="sortComments($event.target.value)"
+      />
+      <label for="sort-by-alphabet-desc">Sort by alphabet (descending)</label>
+    </div>
+  </form>
+  <div class="main-content">
+    <app-comment-item
+      *ngFor="let comment of comments"
+      [comment]="comment"
+    ></app-comment-item>
+  </div>
 </div>

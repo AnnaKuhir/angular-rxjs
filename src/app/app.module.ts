@@ -17,7 +17,10 @@ import { PostsSectionComponent } from './posts-section/posts-section.component';
 import { PostItemComponent } from './posts-section/post-item/post-item.component';
 import { EditBtnComponent } from './edit-btn/edit-btn.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
+import {
+  MatDialogModule,
+  MAT_DIALOG_DEFAULT_OPTIONS,
+} from '@angular/material/dialog';
 import { EditModalDialogComponent } from './edit-modal-dialog/edit-modal-dialog.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
@@ -26,6 +29,7 @@ import { AboutGuard } from './guard';
 import { ToastrModule } from 'ngx-toastr';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HoverDirective } from './shared/directives/hover-scroll';
+import { AdditionInfoItemComponent } from './shared/components/addition-info-item/addition-info-item.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,8 @@ import { HoverDirective } from './shared/directives/hover-scroll';
     EditModalDialogComponent,
     NotFoundPageComponent,
     SidebarMenuComponent,
-    HoverDirective
+    HoverDirective,
+    AdditionInfoItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,9 @@ import { HoverDirective } from './shared/directives/hover-scroll';
     }),
     FontAwesomeModule,
   ],
-  providers: [AboutGuard],
+  providers: [
+    AboutGuard
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

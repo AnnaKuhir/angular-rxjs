@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PhotoItem } from 'src/app/shared/models/photo-item';
 
 @Component({
@@ -8,10 +8,15 @@ import { PhotoItem } from 'src/app/shared/models/photo-item';
 })
 export class PhotoItemComponent implements OnInit {
   @Input() photo: PhotoItem;
+  @Output() openModal: EventEmitter<PhotoItem> = new EventEmitter<PhotoItem>();
   photoUrl: string;
   constructor() {}
 
   ngOnInit(): void {
     this.photoUrl = this.photo.thumbnailUrl;
+  }
+
+  openDialog() {
+    this.openModal.emit(this.photo);
   }
 }

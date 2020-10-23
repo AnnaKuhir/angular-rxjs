@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { range, Subject } from 'rxjs';
 import {
   catchError,
@@ -8,6 +9,7 @@ import {
   takeUntil,
   tap,
 } from 'rxjs/operators';
+import { AdditionInfoItemComponent } from '../shared/components/addition-info-item/addition-info-item.component';
 import { PhotoItem } from '../shared/models/photo-item';
 import { ApiDataService } from '../shared/services/api-data.service';
 
@@ -22,7 +24,7 @@ export class PhotosSectionComponent implements OnInit {
 
   private destroy$: Subject<void> = new Subject<void>();
 
-  constructor(private apiService: ApiDataService) {}
+  constructor(private apiService: ApiDataService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.apiService
@@ -40,6 +42,18 @@ export class PhotosSectionComponent implements OnInit {
           this.photos = [...this.photosArray];
         }
       });
+  }
+
+  openModal(photo: PhotoItem) {
+    this.dialog.open(AdditionInfoItemComponent, {
+      data: photo,
+      width: '30vw',
+      height: '100vh',
+      position: {
+        top: '0',
+        right: '0',
+      },
+    });
   }
 
   ngOnDestroy() {

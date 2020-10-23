@@ -1,4 +1,4 @@
 <div class="photos-section">
-  <app-photo-item *ngFor="let photo of photos" [photo]="photo">
+  <app-photo-item *ngFor="let photo of photos" [photo]="photo" (openModal)="openModal($event)">
   </app-photo-item>
 </div>

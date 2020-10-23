@@ -1,3 +1,45 @@
 .comments-section {
-  padding: 20px 40px;
+  padding: 10px 15px;
+
+  .controlls-wrapper {
+    width: 100%;
+    height: auto;
+    min-height: 5vh;
+    padding: 15px 0;
+    margin-bottom: 10px;
+
+    .controll-wrapper {
+      display: inline-block;
+      vertical-align: top;
+
+      input[type="radio"] {
+        display: none;
+      }
+
+      label {
+        display: inline-block;
+        cursor: pointer;
+        padding: 0px 15px;
+        line-height: 34px;
+        border: 1px solid rgb(136, 27, 94);
+        border-right: none;
+        user-select: none;
+        background-color: #fff;
+
+        &:hover {
+          background-color: rgb(136, 27, 94);
+          color: #fff;
+        }
+      }
+
+      &:first-child label {
+        border-radius: 6px 0 0 6px;
+      }
+
+      &:last-child label {
+        border-radius: 0 6px 6px 0;
+        border-right: 1px solid #999;
+      }
+    }
+  }
 }
