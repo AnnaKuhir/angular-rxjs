@@ -9,7 +9,7 @@ import {
 import { Observable, Subject } from 'rxjs';
 import { User } from '../shared/models/user-info';
 import { ApiDataService } from '../shared/services/api-data.service';
-import { catchError, takeUntil, tap } from 'rxjs/operators';
+import { catchError, delay, takeUntil, tap } from 'rxjs/operators';
 import { fromEvent } from 'rxjs';
 
 @Component({
@@ -21,18 +21,21 @@ export class UsersSectionComponent implements OnInit, AfterViewInit {
   @Output() users: User[];
   usersArr: User[];
   inputElement$: Observable<any>;
+  isLoading: boolean;
   @ViewChild('findUser') findUser: ElementRef;
 
   private destroy$: Subject<void> = new Subject<void>();
 
   constructor(private apiService: ApiDataService) {
     this.users = [];
+    this.isLoading = true;
   }
 
   ngOnInit(): void {
     this.apiService
       .getUsers()
       .pipe(
+        delay(1000),
         takeUntil(this.destroy$),
         catchError((error) => {
           throw 'Error in source. Details: ' + error;
@@ -42,6 +45,7 @@ export class UsersSectionComponent implements OnInit, AfterViewInit {
         if (usersArr) {
           this.usersArr = usersArr;
           this.users = [...this.usersArr];
+          this.isLoading = false;
         }
       });
   }

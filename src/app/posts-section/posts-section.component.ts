@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
-import { catchError, map, takeUntil } from 'rxjs/operators';
+import { catchError, delay, map, takeUntil } from 'rxjs/operators';
 import { Post } from '../shared/models/post';
 import { ApiDataService } from '../shared/services/api-data.service';
 
@@ -12,23 +12,30 @@ import { ApiDataService } from '../shared/services/api-data.service';
 })
 export class PostsSectionComponent implements OnInit {
   @Output() posts: Post[];
+  isLoading: boolean;
   private destroy$: Subject<void> = new Subject<void>();
   constructor(
     private apiService: ApiDataService,
     private toastr: ToastrService
-  ) {}
+  ) {
+    this.isLoading = true;
+  }
 
   ngOnInit(): void {
     this.apiService
       .getPosts()
       .pipe(
+        delay(1000),
         takeUntil(this.destroy$),
         catchError((error) => {
           throw 'Error in source. Details: ' + error;
         })
       )
       .subscribe((posts: Post[]) => {
-        this.posts = posts;
+        if (posts) {
+          this.posts = posts;
+          this.isLoading = false;
+        }
       });
   }
 

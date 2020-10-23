@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { catchError, takeUntil, tap } from 'rxjs/operators';
+import { catchError, delay, takeUntil } from 'rxjs/operators';
 import { CommentItem } from '../shared/models/comment-item';
 import { ApiDataService } from '../shared/services/api-data.service';
 
@@ -13,14 +13,18 @@ import { ApiDataService } from '../shared/services/api-data.service';
 export class CommentsSectionComponent implements OnInit {
   @Output() comments: CommentItem[];
   form: FormGroup;
+  isLoading: boolean;
   private destroy$: Subject<void> = new Subject<void>();
 
-  constructor(private apiService: ApiDataService) {}
+  constructor(private apiService: ApiDataService) {
+    this.isLoading = true;
+  }
 
   ngOnInit(): void {
     this.apiService
       .getComments()
       .pipe(
+        delay(1000),
         takeUntil(this.destroy$),
         catchError((error) => {
           throw 'Error in source. Details: ' + error;
@@ -28,6 +32,7 @@ export class CommentsSectionComponent implements OnInit {
       )
       .subscribe((commentsArr: CommentItem[]) => {
         this.comments = commentsArr;
+        this.isLoading = false;
       });
 
       this.form = new FormGroup({

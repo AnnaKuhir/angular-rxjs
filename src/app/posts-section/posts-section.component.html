@@ -4,4 +4,5 @@
     [post]="post"
     (updatePostItem)="updatePostItem($event)"
   ></app-post-item>
+  <app-mat-loader *ngIf="isLoading"></app-mat-loader>
 </div>

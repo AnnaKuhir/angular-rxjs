@@ -31,6 +31,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HoverDirective } from './shared/directives/hover-scroll';
 import { AdditionInfoItemComponent } from './shared/components/addition-info-item/addition-info-item.component';
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatLoaderComponent } from './shared/components/mat-loader/mat-loader.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +51,7 @@ import { AdditionInfoItemComponent } from './shared/components/addition-info-ite
     SidebarMenuComponent,
     HoverDirective,
     AdditionInfoItemComponent,
+    MatLoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +68,7 @@ import { AdditionInfoItemComponent } from './shared/components/addition-info-ite
       preventDuplicates: true,
     }),
     FontAwesomeModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     AboutGuard

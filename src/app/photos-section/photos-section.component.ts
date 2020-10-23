@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { range, Subject } from 'rxjs';
 import {
   catchError,
+  delay,
   filter,
   flatMap,
   map,
@@ -21,15 +22,18 @@ import { ApiDataService } from '../shared/services/api-data.service';
 export class PhotosSectionComponent implements OnInit {
   @Output() photos: PhotoItem[];
   photosArray: PhotoItem[];
-
+  isLoading: boolean;
   private destroy$: Subject<void> = new Subject<void>();
 
-  constructor(private apiService: ApiDataService, private dialog: MatDialog) {}
+  constructor(private apiService: ApiDataService, private dialog: MatDialog) {
+    this.isLoading = true;
+  }
 
   ngOnInit(): void {
     this.apiService
       .getPhotos()
       .pipe(
+        delay(1000),
         takeUntil(this.destroy$),
         map((photosArray) => photosArray.filter((proj) => proj.albumId === 1)),
         catchError((error) => {
@@ -40,6 +44,7 @@ export class PhotosSectionComponent implements OnInit {
         if (photosArray) {
           this.photosArray = photosArray;
           this.photos = [...this.photosArray];
+          this.isLoading = false;
         }
       });
   }
