@@ -10,6 +10,7 @@ export class PhotoItemComponent implements OnInit {
   @Input() photo: PhotoItem;
   @Output() openModal: EventEmitter<PhotoItem> = new EventEmitter<PhotoItem>();
   photoUrl: string;
+  
   constructor() {}
 
   ngOnInit(): void {

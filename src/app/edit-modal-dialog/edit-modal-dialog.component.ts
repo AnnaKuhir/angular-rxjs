@@ -16,6 +16,7 @@ export class EditModalDialogComponent implements OnInit {
   public formGroup: FormGroup;
 
   private destroy$: Subject<void> = new Subject<void>();
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public postInfo: Post,
     private appService: ApiDataService,

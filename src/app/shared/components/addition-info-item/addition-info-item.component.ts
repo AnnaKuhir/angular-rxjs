@@ -8,9 +8,7 @@ import { PhotoItem } from '../../models/photo-item';
   styleUrls: ['./addition-info-item.component.scss'],
 })
 export class AdditionInfoItemComponent implements OnInit {
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public photo: PhotoItem,
-  ) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public photo: PhotoItem) {}
 
   ngOnInit(): void {}
 }

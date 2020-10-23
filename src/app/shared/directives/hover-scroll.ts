@@ -1,19 +1,17 @@
-import { Directive, ElementRef, HostListener } from "@angular/core";
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-    selector: '[hover-scroll]'
+  selector: '[hover-scroll]',
 })
 export class HoverDirective {
-    constructor(private element: ElementRef){
+  constructor(private element: ElementRef) {}
 
-    }
+  @HostListener('mouseenter') onMouseEnter() {
+    document.body.style.overflowY = 'auto';
+    document.body.style.overflowX = 'hidden';
+  }
 
-    @HostListener('mouseenter') onMouseEnter() {
-        document.body.style.overflowY = 'auto';
-        document.body.style.overflowX = 'hidden';
-    }
-
-    @HostListener('mouseleave') onMouseLeave() {
-        document.body.style.overflow = 'hidden';
-    }
+  @HostListener('mouseleave') onMouseLeave() {
+    document.body.style.overflow = 'hidden';
+  }
 }

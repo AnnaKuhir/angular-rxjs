@@ -10,6 +10,7 @@ export class PostItemComponent implements OnInit {
   @Input() post: Post;
   @Output() postInfo: Post;
   @Output() updatePostItem: EventEmitter<Post> = new EventEmitter<Post>();
+
   constructor() {}
 
   ngOnInit(): void {
@@ -17,6 +18,6 @@ export class PostItemComponent implements OnInit {
   }
 
   updatePostCard() {
-    this.updatePostItem.emit(this.post)
+    this.updatePostItem.emit(this.post);
   }
 }

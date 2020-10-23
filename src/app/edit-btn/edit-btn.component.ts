@@ -11,6 +11,7 @@ import { Post } from '../shared/models/post';
 })
 export class EditBtnComponent implements OnInit {
   @Input() postInfo: Post;
+
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
@@ -20,7 +21,7 @@ export class EditBtnComponent implements OnInit {
       height: '400px',
       width: '600px',
       data: this.postInfo,
-      scrollStrategy: new NoopScrollStrategy()
+      scrollStrategy: new NoopScrollStrategy(),
     });
   }
 }

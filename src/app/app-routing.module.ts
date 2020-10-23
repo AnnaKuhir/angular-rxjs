@@ -8,15 +8,15 @@ import { PostsSectionComponent } from './posts-section/posts-section.component';
 import { UsersSectionComponent } from './users-section/users-section.component';
 
 const routes: Routes = [
-  {path: '', component: UsersSectionComponent},
-  {path: 'comments', component: CommentsSectionComponent},
-  {path: 'photos', component: PhotosSectionComponent},
-  {path: 'posts', component: PostsSectionComponent },
+  { path: '', component: UsersSectionComponent },
+  { path: 'comments', component: CommentsSectionComponent },
+  { path: 'photos', component: PhotosSectionComponent },
+  { path: 'posts', component: PostsSectionComponent },
   { path: '**', component: NotFoundPageComponent, canActivate: [AboutGuard] },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

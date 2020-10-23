@@ -24,6 +24,7 @@ export class PhotosSectionComponent implements OnInit {
   @Output() photos: PhotoItem[];
   photosArray: PhotoItem[];
   isLoading: boolean;
+
   private destroy$: Subject<void> = new Subject<void>();
 
   constructor(private apiService: ApiDataService, private dialog: MatDialog) {
@@ -59,7 +60,7 @@ export class PhotosSectionComponent implements OnInit {
         top: '0',
         right: '0',
       },
-      scrollStrategy: new NoopScrollStrategy()
+      scrollStrategy: new NoopScrollStrategy(),
     });
   }
 

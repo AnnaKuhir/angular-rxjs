@@ -19,7 +19,8 @@
       cursor: pointer;
       outline: none;
 
-      &:hover, &:active {
+      &:hover,
+      &:active {
         background: #841ea3;
         color: #fff;
       }

@@ -14,6 +14,7 @@ export class CommentsSectionComponent implements OnInit {
   @Output() comments: CommentItem[];
   form: FormGroup;
   isLoading: boolean;
+
   private destroy$: Subject<void> = new Subject<void>();
 
   constructor(private apiService: ApiDataService) {
@@ -35,18 +36,18 @@ export class CommentsSectionComponent implements OnInit {
         this.isLoading = false;
       });
 
-      this.form = new FormGroup({
-        sort: new FormControl('')
-      });
+    this.form = new FormGroup({
+      sort: new FormControl(''),
+    });
   }
 
   sortByKey(key: string) {
     this.comments = this.comments.sort((commentPrev, commentNext) => {
       let commentFirst = commentPrev.email.toLowerCase(),
-          commentSecond = commentNext.email.toLowerCase();
+        commentSecond = commentNext.email.toLowerCase();
       const sortOrder = SortOrder[key];
-      if(sortOrder) {
-        if (sortOrder === SortOrder.asc){
+      if (sortOrder) {
+        if (sortOrder === SortOrder.asc) {
           if (commentFirst < commentSecond) {
             return -1;
           }
@@ -68,7 +69,7 @@ export class CommentsSectionComponent implements OnInit {
   }
 
   sortComments(value) {
-    debugger
+    debugger;
     this.sortByKey(value);
   }
 
@@ -79,6 +80,6 @@ export class CommentsSectionComponent implements OnInit {
 }
 
 enum SortOrder {
-  asc = "asc",
-  desc = "desc"
+  asc = 'asc',
+  desc = 'desc',
 }

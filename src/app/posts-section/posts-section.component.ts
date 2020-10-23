@@ -14,6 +14,7 @@ export class PostsSectionComponent implements OnInit {
   @Output() posts: Post[];
   isLoading: boolean;
   private destroy$: Subject<void> = new Subject<void>();
+
   constructor(
     private apiService: ApiDataService,
     private toastr: ToastrService

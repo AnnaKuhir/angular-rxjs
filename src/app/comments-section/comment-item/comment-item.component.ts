@@ -8,6 +8,7 @@ import { CommentItem } from 'src/app/shared/models/comment-item';
 })
 export class CommentItemComponent implements OnInit {
   @Input() comment: CommentItem;
+
   constructor() {}
 
   ngOnInit(): void {}
