@@ -4,4 +4,25 @@
   margin-bottom: 20px;
   background: rgb(236, 203, 226);
   border-radius: 15px;
+
+  .btn-wrapper {
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+
+    .update-posts {
+      padding: 5px 15px;
+      background-color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+      outline: none;
+
+      &:hover, &:active {
+        background: #841ea3;
+        color: #fff;
+      }
+    }
+  }
 }
