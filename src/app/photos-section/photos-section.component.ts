@@ -1,3 +1,4 @@
+import { NoopScrollStrategy } from '@angular/cdk/overlay';
 import { Component, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { range, Subject } from 'rxjs';
@@ -58,6 +59,7 @@ export class PhotosSectionComponent implements OnInit {
         top: '0',
         right: '0',
       },
+      scrollStrategy: new NoopScrollStrategy()
     });
   }
 

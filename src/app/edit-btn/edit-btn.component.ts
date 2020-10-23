@@ -1,3 +1,4 @@
+import { NoopScrollStrategy } from '@angular/cdk/overlay';
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditModalDialogComponent } from '../edit-modal-dialog/edit-modal-dialog.component';
@@ -19,6 +20,7 @@ export class EditBtnComponent implements OnInit {
       height: '400px',
       width: '600px',
       data: this.postInfo,
+      scrollStrategy: new NoopScrollStrategy()
     });
   }
 }
