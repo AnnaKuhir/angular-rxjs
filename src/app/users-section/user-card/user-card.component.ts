@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faBriefcase,
   faEnvelope,
   faHome,
   faPhoneSquare,
   faSitemap,
-  IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
+
 import { User } from 'src/app/shared/models/user-info';
 
 @Component({
