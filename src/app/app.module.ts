@@ -21,6 +21,7 @@ import { UsersSectionModule } from './users-section/users-section.module';
 import { CommentsSectionModule } from './comments-section/comments-section.module';
 import { PhotosSectionModule } from './photos-section/photos-section.module';
 import { PostsSectionModule } from './posts-section/posts-section.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { PostsSectionModule } from './posts-section/posts-section.module';
       timeOut: 2000,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
-    })
+    }),
+    SharedModule
   ],
   providers: [AboutGuard],
   bootstrap: [AppComponent],
