@@ -9,8 +9,8 @@ export class CheckForUpdateService {
     const appIsStable$ = appRef.isStable.pipe(
       first((isStable) => isStable === true)
     );
-    const everySixHours$ = interval(6 * 60 * 60 * 1000);
-    const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everySixHours$);
+    const everyHour$ = interval(1 * 60 * 60 * 1000);
+    const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everyHour$);
     everySixHoursOnceAppIsStable$.subscribe(() => updates.checkForUpdate());
   }
 }
