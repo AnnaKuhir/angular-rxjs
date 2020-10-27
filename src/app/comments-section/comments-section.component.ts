@@ -69,7 +69,6 @@ export class CommentsSectionComponent implements OnInit {
   }
 
   sortComments(value) {
-    debugger;
     this.sortByKey(value);
   }
 

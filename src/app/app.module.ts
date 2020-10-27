@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { EditBtnComponent } from './edit-btn/edit-btn.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditModalDialogComponent } from './edit-modal-dialog/edit-modal-dialog.component';
@@ -23,10 +22,10 @@ import { PhotosSectionModule } from './photos-section/photos-section.module';
 import { PostsSectionModule } from './posts-section/posts-section.module';
 import { SharedModule } from './shared/shared.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    EditBtnComponent,
     EditModalDialogComponent,
     NotFoundPageComponent,
     SidebarMenuComponent,
